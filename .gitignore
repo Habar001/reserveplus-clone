@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+
+# Android Studio / IDEA
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Локальное
+local.properties
+*.jks
+*.keystore
+
+# Артефакты сборки
+*.apk
+*.aab
+*.ap_

@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="_continue">Продовжити</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
+    <string name="abc_action_mode_done">Done</string>
+    <string name="abc_capital_off">OFF</string>
+    <string name="abc_capital_on">ON</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Search…</string>
+    <string name="abc_searchview_description_clear">Clear query</string>
+    <string name="abc_searchview_description_search">Search</string>
+    <string name="abc_searchview_description_submit">Submit query</string>
+    <string name="abc_searchview_description_voice">Voice search</string>
+    <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="about_vacancy">Про вакансію</string>
+    <string name="accept_privacy_policy">Я приймаю умови &lt;a href=privacy_policy_tag>Політики Конфіденційності&lt;/a> та даю згоду на обробку своїх персональних даних</string>
+    <string name="account_type">Категорія обліку:</string>
+    <string name="action_load">Завантажити</string>
+    <string name="action_loading_error">Спробувати ще раз</string>
+    <string name="action_next">Далі</string>
+    <string name="active_sessions">Активні сесії</string>
+    <string name="actualization_date">Дата останнього уточнення даних:</string>
+    <string name="add_additional_file">Прикріпити додатковий файл</string>
+    <string name="add_cv_label">Додати файл з резюме</string>
+    <string name="add_document">Додати документ</string>
+    <string name="add_file">Додати файл</string>
+    <string name="additional_info_label">Розкажіть про себе</string>
+    <string name="additional_info_placeholder">Текстовий опис</string>
+    <string name="address">Адреса проживання:</string>
+    <string name="address_description">Адреса проживання</string>
+    <string name="address_manual_only_message">На попередньому етапі ви ввели адресу вручну, тому вибрати зі списку тут і далі не вийде. Введіть інформацію про адресу та збережіть її.</string>
+    <string name="address_not_found_message">Не знайшли адреси з такою назвою, але ви можете її зберегти.</string>
+    <string name="address_postal_index_error">Введіть індекс</string>
+    <string name="address_thanks_title">"Дякуємо!
+Адресу оновлено"</string>
+    <string name="age_title">Вік</string>
+    <string name="age_value">%s р.</string>
+    <string name="alert_action_ok">Зрозуміло</string>
+    <string name="alert_attempts_exhausted_repeat_later">Спробуйте, будь ласка, пізніше.</string>
+    <string name="alert_attempts_exhausted_repeat_later_title">"Опрацьовуємо
+запити"</string>
+    <string name="alert_change_weak_pin_action">Змінити код</string>
+    <string name="alert_change_weak_pin_description">Поточний код легко вгадати. Оберіть складнішу комбінацію цифр, щоб продовжити.</string>
+    <string name="alert_change_weak_pin_title">Змініть код для входу</string>
+    <string name="alert_check_your_data_again_title">Перевірте ваші дані ще раз.</string>
+    <string name="alert_data_failed_description">Вона виникла на етапі отримання даних з реєстру Оберіг. Спробуйте ще раз пізніше.</string>
+    <string name="alert_data_failed_title">Технічна помилка</string>
+    <string name="alert_exceeded_amount_of_pin_entering_auth_again">Авторизуватися</string>
+    <string name="alert_exceeded_amount_of_pin_entering_description">Пройдіть повторну авторизацію у застосунку</string>
+    <string name="alert_exceeded_amount_of_pin_entering_title">Ви ввели неправильний код тричі</string>
+    <string name="alert_file_not_found_description">Ймовірно, ви очистили кеш. Через 24 години після попереднього запиту на отримання даних можете зробити новий.</string>
+    <string name="alert_file_not_found_title">Файл вже недоступний</string>
+    <string name="alert_forgot_pin_authorize">Авторизуватися</string>
+    <string name="alert_forgot_pin_description">Пройдіть повторну авторизацію у застосунку</string>
+    <string name="alert_forgot_pin_title">Забули код для входу?</string>
+    <string name="alert_inappropriate_not_evod_scan_description">В цьому розділі доступне тільки сканування електронних військово-облікових документів.</string>
+    <string name="alert_inappropriate_not_notice_scan_description">В цьому розділі доступне тільки сканування паперових повісток.</string>
+    <string name="alert_inappropriate_not_vlk_referral_scan_description">В цьому розділі доступне тільки сканування направлень на ВЛК</string>
+    <string name="alert_no_bank_app_description">Перевірте, чи він встановлений на вашому пристрої і спробуйте ще раз або авторизуйтесь через веб-сторінку банку</string>
+    <string name="alert_no_bank_app_title">Не вдається відкрити мобільний застосунок банку</string>
+    <string name="alert_no_browser_description">Переконайтесь, що браузер встановлений і працює.</string>
+    <string name="alert_no_browser_title">Не вдалось відкрити посилання</string>
+    <string name="alert_no_internet_action">Спробувати знову</string>
+    <string name="alert_no_internet_description">Перевірте підключення до інтернету та спробуйте знову</string>
+    <string name="alert_no_internet_title">Десь поділося з’єднання</string>
+    <string name="alert_qr_bad_data_description">QR код містить невірні дані.</string>
+    <string name="alert_qr_bad_data_title">Дані не знайдено</string>
+    <string name="alert_qr_certificate_expired_description">"Строк дії QR коду завершився.
+Спробуйте оновити документ."</string>
+    <string name="alert_qr_certificate_expired_title">Дані не знайдено</string>
+    <string name="alert_qr_certificate_unauthorized_notice_description">Для доступу до сканування потрібно авторизуватись.</string>
+    <string name="alert_qr_certificate_unauthorized_notice_title">Сканування недоступне</string>
+    <string name="alert_qr_expired_description">"Строк дії QR коду завершився.
+Спробуйте оновити документ."</string>
+    <string name="alert_qr_expired_title">Дані не знайдено</string>
+    <string name="alert_qr_notice_bad_data_description">Дані не знайдено або цей документ виписаний не вам.</string>
+    <string name="alert_qr_notice_bad_data_title">Неможливо перевірити QR</string>
+    <string name="alert_qr_unknown_description">Ми не змогли знайти дані. Здається, цей код не з Резерв+.</string>
+    <string name="alert_qr_unknown_title">Недійсний код</string>
+    <string name="alert_redirect_description">Але Резерв+ не закривається і у нього завжди можна повернутися</string>
+    <string name="alert_redirect_main_button">Перейти за посиланням</string>
+    <string name="alert_redirect_title">Ви переходите на інший сайт</string>
+    <string name="alert_revocations_no_update_description">"Нова версія бази ще готується.
+Спробуйте, будь ласка, пізніше."</string>
+    <string name="alert_revocations_no_update_title">Оновлення бази відсутні</string>
+    <string name="alert_tech_problem">У нас технічна проблема</string>
+    <string name="alert_tech_problem_description">Вибачте. Будь ласка, спробуйте ще раз</string>
+    <string name="alert_unknown_action">Спробувати знову</string>
+    <string name="alert_update_required_message">"Тоді оновіть застосунок до
+останньої версії — і сервіс стане
+доступним"</string>
+    <string name="alert_update_required_title">"Треба вибрати мету
+направлення?"</string>
+    <string name="alert_weak_pin_description">Такий код легко вгадати. Уникайте простих комбінацій — наприклад, 1234 чи 1111.</string>
+    <string name="alert_weak_pin_title">Слабкий код</string>
+    <string name="all">Всі</string>
+    <string name="all_brigade_vacancies">Всі вакансії бригади</string>
+    <string name="allow">Дозволити</string>
+    <string name="allow_biometric_title">Дозвольте вхід за біометричними даними</string>
+    <string name="allow_face_and_touch_id_subtitle">Щоб входити до застосунку за відбитком пальця або скануванням обличчя.</string>
+    <string name="allow_later">Дозволю пізніше</string>
+    <string name="allow_send_newsletters">Даю згоду отримувати від Lobby X на Email інформацію про статус мого відгуку на вакансію</string>
+    <string name="alphabetical_asc_sort">Від А до Я</string>
+    <string name="alphabetical_desc_sort">Від Я до А</string>
+    <string name="already_on_duty">Вже служу у війську</string>
+    <string name="android">Android</string>
+    <string name="androidx_compose_foundation_autofill">Autofill</string>
+    <string name="androidx_startup">androidx.startup</string>
+    <string name="apartment_number">Номер квартири</string>
+    <string name="app_name">Резерв+</string>
+    <string name="app_version">Версія %s</string>
+    <string name="apply">Застосувати</string>
+    <string name="apply_again_18_24_message">Бачимо, що ви залишали відгук на них. Але якщо хочете, то можете спробувати ще раз</string>
+    <string name="apply_again_18_24_title">Ви вже подавалися на %d з цих вакансій</string>
+    <string name="apply_again_message">"Хочете відгукнутись
+на неї ще раз?"</string>
+    <string name="apply_again_title">Ви вже подавалися на цю вакансію</string>
+    <string name="apply_button">Відгукнутись</string>
+    <string name="apply_for_vacancies_no_counter_title">Відгукнутись на вакансії</string>
+    <string name="apply_for_vacancies_title">Відгукнутись на вакансії (%d)</string>
+    <string name="apply_for_vacancy_thanks_description">"Ми отримали ваш відгук
+
+Підрозділ зв'яжеться із вами, якщо їх зацікавить кандидатура. А поки продовжуйте готуватися, щоб стати частиною Сил оборони."</string>
+    <string name="apply_for_vacancy_thanks_title">Дякуємо!</string>
+    <string name="apply_for_vacancy_title">Відгукнутись на вакансію</string>
+    <string name="apply_title">Відгукнутись</string>
+    <string name="apply_with_count">Застосувати (%d)</string>
+    <string name="auth_redirect_cancel">Скасувати</string>
+    <string name="auth_redirect_progress_message">Продовжуємо авторизацію в застосунку %s</string>
+    <string name="authorization_date">Дата підключення:</string>
+    <string name="biometric_prompt_title">Вхід за біометричними даними</string>
+    <string name="birth_date">Дата народження:</string>
+    <string name="brigade_vacancies">Вакансії бригади</string>
+    <string name="brigades_search">Пошук підрозділу</string>
+    <string name="camera_permission_description">Так ви зможете сканувати QR код</string>
+    <string name="camera_permission_shouldShowRationale_btn">Відкрити налаштування</string>
+    <string name="camera_permission_title">Дозвольте Резерв+ доступ до вашої камери</string>
+    <string name="cancel">Скасувати</string>
+    <string name="cancel_button">Не треба</string>
+    <string name="card_title">"Військово-
+обліковий
+документ"</string>
+    <string name="card_title_old">"Інформація
+з реєстру
+Оберіг"</string>
+    <string name="certificate_preparing">"Отримуємо інформацію з
+реєстру"</string>
+    <string name="certificate_revocation_db_size_b">%d Б</string>
+    <string name="certificate_revocation_db_size_kb">%d КБ</string>
+    <string name="certificate_revocation_db_size_less_than_mb">менше 1 МБ</string>
+    <string name="certificate_revocation_db_size_mb">%.2f МБ</string>
+    <string name="certificate_revocation_db_size_title">Розмір:</string>
+    <string name="certificate_revocation_new_db">Нова база даних</string>
+    <string name="certificate_revocations_online_mode_error">Не вдалось перевірити QR. Деякі дані можуть бути застарілі.</string>
+    <string name="certificate_state_line">Документ оновлено о %s • </string>
+    <string name="certificate_status_need_clarification_tip">Сталася помилка під час завантаження тексту. Спробуйте відкрити документ пізніше.</string>
+    <string name="certificate_status_wanted_tip">Схоже, у вас є порушення правил військового обліку. Можливі причини та варіанти вирішення шукайте в розділі «Питання-відповіді»</string>
+    <string name="check_your_data_title">Перевірте та підтвердьте ваші дані</string>
+    <string name="checking">Перевірка</string>
+    <string name="checking_code_subtitle">Перевірка коду …</string>
+    <string name="city">Населений пункт</string>
+    <string name="clarification_warning">Уважно перевірте усі дані. Ще раз їх можна буде уточнити за 7 днів</string>
+    <string name="clear">Очистити</string>
+    <string name="close_sheet">Close sheet</string>
+    <string name="code_valid_until">QR-код дійсний до %s</string>
+    <string name="com.google.firebase.crashlytics.mapping_file_id">41cf921825e649bf882ef60f13d51ba0</string>
+    <string name="com.google.firebase.crashlytics.version_control_info">"repositories {
+  system: GIT
+  local_root_path: \"$PROJECT_DIR\"
+  revision: \"1aaf006531a771cb183c3e0e6f0dc7d3a6ecd6d5\"
+}
+"</string>
+    <string name="common_google_play_services_enable_button">Enable</string>
+    <string name="common_google_play_services_enable_text">"%1$s won't work unless you enable Google Play services."</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text">"%1$s won't run without Google Play services, which are missing from your device."</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text">"%1$s won't run without Google Play services, which are not supported by your device."</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">"%1$s won't run unless you update Google Play services."</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">"%1$s won't run without Google Play services, which are currently updating."</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="confirm">Підтвердити</string>
+    <string name="confirm_device_credential_password">Use password</string>
+    <string name="confirm_new_pin_title">"Повторіть код
+з 4 цифр"</string>
+    <string name="confirm_pin_subtitle">Підтвердьте код.</string>
+    <string name="confirm_pin_title">"Повторіть код з
+4 цифр"</string>
+    <string name="confirmation_code_email_subtitle">Введіть код, що прийшов на електронну пошту.</string>
+    <string name="confirmation_code_phone_subtitle">Введіть код, що прийшов на ваш номер.</string>
+    <string name="confirmation_code_title">Код підтвердження</string>
+    <string name="connected_device">Підключений пристрій</string>
+    <string name="contact_details_clarification_title">Уточнення контактних даних</string>
+    <string name="contact_email">cabinet-support@mil.ua</string>
+    <string name="content_description_back">Назад</string>
+    <string name="content_description_delete">Видалити</string>
+    <string name="content_description_support">Підтримка</string>
+    <string name="content_description_touch_id">Сканер відбитку пальця</string>
+    <string name="contracts_tab_button_enter">Змінити перебіг подій</string>
+    <string name="contracts_tab_empty_message">"Але регулярно перевіряйте цей розділ, бо саме ваша можливість з'явиться будь-якої миті"</string>
+    <string name="contracts_tab_empty_title">Поки немає вакансій</string>
+    <string name="copy_number_of_device_tip">Номер пристрою</string>
+    <string name="copy_number_of_device_title">Копіювати номер пристрою</string>
+    <string name="country">Країна</string>
+    <string name="create_application_button">Створити заяву</string>
+    <string name="create_pin_subtitle">"Цей код ви будете вводити для
+входу у застосунок Резерв+."</string>
+    <string name="create_pin_title">"Придумайте код
+з 4 цифр"</string>
+    <string name="current_session">Поточна сесія</string>
+    <string name="cv_warning">"Резюме завантажувати не обов'язково, але відгуки із ним розглядатимуться в першу чергу"</string>
+    <string name="data_not_available">Дані відсутні</string>
+    <string name="data_not_specified">Дані не вказано</string>
+    <string name="data_partially_specified">Дані неповні</string>
+    <string name="date_of_birth">Дата народження</string>
+    <string name="day_before_yesterday">позавчора</string>
+    <string name="default_country">Україна</string>
+    <string name="default_error_message">Invalid input</string>
+    <string name="default_error_msg">Unknown error</string>
+    <string name="default_popup_window_title">Pop-Up Window</string>
+    <string name="deferral_date">Відстрочка до:</string>
+    <string name="deferral_reason_default">інше</string>
+    <string name="deferral_reason_title">Підстава зняття чи виключення:</string>
+    <string name="deferral_title">Тип відстрочки:</string>
+    <string name="disability_group_title">Група інвалідності:</string>
+    <string name="disability_reason">Причина:</string>
+    <string name="disability_valid_until">Діє до:</string>
+    <string name="district">Район</string>
+    <string name="do_you_want_to_exit">"Хочете вийти із
+застосунку?"</string>
+    <string name="do_you_want_to_exit_screen">Хочете вийти?</string>
+    <string name="document_lifespan_end_title">Діє до:</string>
+    <string name="document_lifespan_start_title">Створено:</string>
+    <string name="document_revoked_warning_title">Будьте пильні: дані в еВОДі актуальні на дату створення QR коду. Деякі з параметрів були змінені після того.</string>
+    <string name="dont_show_again">Більше не показувати</string>
+    <string name="download_pdf">Завантажити PDF</string>
+    <string name="download_pdf_warning_action">Завантажити PDF</string>
+    <string name="download_pdf_warning_do_not_show_again">Більше не показувати</string>
+    <string name="download_pdf_warning_message">Документ містить персональні дані. Використовуйте його за потреби та відповідально ставтеся до поширення.</string>
+    <string name="download_pdf_warning_title">Важливо!</string>
+    <string name="email">Email:</string>
+    <string name="email_address_empty_error">Введіть електронну адресу</string>
+    <string name="email_address_invalid_error">Введіть коректну адресу</string>
+    <string name="email_description">Email адреса</string>
+    <string name="email_thanks_title">"Дякуємо,
+email оновлено"</string>
+    <string name="empty_services_message">Не вдалось відобразити список послуг. Спробуйте ще раз пізніше.</string>
+    <string name="empty_services_title">Сталося щось дивне</string>
+    <string name="end_other_sessions">Завершити інші</string>
+    <string name="end_session">Завершити сесію</string>
+    <string name="end_session_action">Завершити</string>
+    <string name="end_session_cancel">Ні, іншим разом</string>
+    <string name="end_session_message">Ця сесія буде завершена.</string>
+    <string name="end_session_title">Зверніть увагу!</string>
+    <string name="end_sessions_message">Усі сесії, окрім поточної, буде завершено.</string>
+    <string name="enter_code_hint">Введіть код</string>
+    <string name="enter_current_pin_subtitle">Це має бути ваш поточний код</string>
+    <string name="enter_current_pin_title">"Введіть код з 4
+цифр"</string>
+    <string name="enter_email">Ввести email</string>
+    <string name="enter_new_pin_subtitle">Цей код ви будете вводити для входу у застосунок Резерв+.</string>
+    <string name="enter_new_pin_title">"Придумайте код
+з 4 цифр"</string>
+    <string name="enter_pin_forgot_pin">Не пам’ятаю код для входу</string>
+    <string name="enter_pin_title">Код для входу</string>
+    <string name="enter_your_email_hint">Введіть свій email</string>
+    <string name="error_file_too_large">Файл перевищує розмір 10 МБ</string>
+    <string name="error_required_field">"Це поле обов'язкове"</string>
+    <string name="evod_updating_message">Оновлюємо документ • Потрібно почекати •</string>
+    <string name="exit_screen_action">Вийти</string>
+    <string name="exit_screen_cancel">Повернутися</string>
+    <string name="exit_screen_warning">Ви втратите всі зміни, які внесли</string>
+    <string name="file_still_uploading_message">"Один або декілька файлів ще завантажуються.
+Ці документи не будуть прикріплені до відгуку.
+Ви впевнені, що готові відгукнутись?"</string>
+    <string name="file_still_uploading_title">Зверніть увагу</string>
+    <string name="file_upload_error_message">Сталася помилка під час завантаження файлу. Спробуйте ще раз або перевірте підключення до мережі.</string>
+    <string name="file_upload_error_title">Помилка завантаження файлу</string>
+    <string name="files_limit_message">Ви досягли максимальної кількості файлів. Видаліть ті, що не потрібні.</string>
+    <string name="files_limit_title">Ліміт завантаження</string>
+    <string name="filter">Фільтр</string>
+    <string name="fine_details_application_address">Адреса місця проживання</string>
+    <string name="fine_details_application_birth_date">Дата народження</string>
+    <string name="fine_details_application_button_download">Завантажити заяву</string>
+    <string name="fine_details_application_dialog_button">Зрозуміло</string>
+    <string name="fine_details_application_dialog_message">"Перевірити його справжність можна на одному з офіційних державних сайтів перевірки електронного підпису.
+
+Детальніше – у розділі «Питання та відповіді»."</string>
+    <string name="fine_details_application_dialog_title">Ви завантажуєте підписаний файл заяви</string>
+    <string name="fine_details_application_email">Електронна адреса</string>
+    <string name="fine_details_application_full_name">ПІБ</string>
+    <string name="fine_details_application_manager_details">Начальнику</string>
+    <string name="fine_details_application_passport">РНОКПП або номер паспорта</string>
+    <string name="fine_details_application_phone_number">Номер телефону</string>
+    <string name="fine_details_application_signed_date">Дата підписання заяви</string>
+    <string name="fine_details_application_submitted_date">від {{date}}</string>
+    <string name="fine_details_application_title">Заява</string>
+    <string name="fine_details_button_pay">Сплатити</string>
+    <string name="fine_details_cancellation_reason">Причина скасування:</string>
+    <string name="fine_details_cancellation_title">Дані скасування</string>
+    <string name="fine_details_close_resolution_closed_at">Дата наявної постанови:</string>
+    <string name="fine_details_close_resolution_issued_by">Постанову виніс:</string>
+    <string name="fine_details_close_resolution_number">Номер наявної постанови:</string>
+    <string name="fine_details_close_resolution_reason">Причина закриття справи:</string>
+    <string name="fine_details_close_resolution_title">Постанова про закриття</string>
+    <string name="fine_details_close_resolution_violation_article">Стаття порушення:</string>
+    <string name="fine_details_escalation_date">Дата передачі:</string>
+    <string name="fine_details_escalation_letter_number">Номер листа до ВС:</string>
+    <string name="fine_details_escalation_title">Передача справи</string>
+    <string name="fine_details_paid_amount">Вже сплачено:</string>
+    <string name="fine_details_payment_amount">Сплачено</string>
+    <string name="fine_details_payment_amount_to_pay">До сплати:</string>
+    <string name="fine_details_payment_expiration_date">Дата сплати:</string>
+    <string name="fine_details_payment_pay_until">Сплатити до:</string>
+    <string name="fine_details_payment_title">Оплата</string>
+    <string name="fine_details_reason">Причина:</string>
+    <string name="fine_details_resolution_button_download">Завантажити постанову</string>
+    <string name="fine_details_resolution_dialog_button">Зрозуміло</string>
+    <string name="fine_details_resolution_dialog_message">"Перевірити його справжність можна на одному з офіційних державних сайтів перевірки електронного підпису.
+
+Детальніше – у розділі «Питання та відповіді»."</string>
+    <string name="fine_details_resolution_dialog_title">Ви завантажуєте підписаний файл постанови</string>
+    <string name="fine_details_resolution_issued_by">Постанову виніс:</string>
+    <string name="fine_details_resolution_title">Постанова</string>
+    <string name="fine_details_resolution_violation_article">Стаття порушення:</string>
+    <string name="fine_details_title">Деталі справи</string>
+    <string name="fine_sign_diia_button_label">Підпис</string>
+    <string name="fine_sign_info_description">Це можна зробити за допомогою Дія.Підпис або SmartID від ПриватБанку.</string>
+    <string name="fine_sign_info_title">Підпишіть заяву</string>
+    <string name="fine_sign_no_app_button_label">Скасувати підписання</string>
+    <string name="fine_sign_no_app_info_description">"Встановіть застосунок Дія або Приват24 і створіть там підпис.
+
+Інакше подати заяву онлайн не вийде."</string>
+    <string name="fine_sign_no_app_info_title">У мене немає Дія.Підпис чи SmartID від ПриватБанку. Що робити?</string>
+    <string name="fine_sign_no_app_text">"У мене немає Дія.Підпис
+чи SmartID. Що робити?"</string>
+    <string name="fine_sign_smart_id_button_label">від ПриватБанку</string>
+    <string name="fines_list_actualized_date">Дані актуальні на {{date}}</string>
+    <string name="fines_list_intro_button_label">Почати</string>
+    <string name="fines_list_intro_checkbox_title">Більше не показувати</string>
+    <string name="fines_list_intro_description">У цьому розділі деталі про штрафи та як їх врегулювати.</string>
+    <string name="fines_list_title">Штрафи онлайн</string>
+    <string name="fingerprint_dialog_touch_sensor">Touch the fingerprint sensor</string>
+    <string name="fingerprint_error_hw_not_available">Fingerprint hardware not available.</string>
+    <string name="fingerprint_error_hw_not_present">This device does not have a fingerprint sensor</string>
+    <string name="fingerprint_error_lockout">Too many attempts. Please try again later.</string>
+    <string name="fingerprint_error_no_fingerprints">No fingerprints enrolled.</string>
+    <string name="fingerprint_error_user_canceled">Fingerprint operation canceled by user.</string>
+    <string name="fingerprint_not_recognized">Not recognized</string>
+    <string name="for_enter_you_need_to_auth_again">"Для входу буде потрібна повторна
+авторизація"</string>
+    <string name="foreign_card_description">З громадянами України, що проживають за кордоном, ТЦК та СП може звʼязатися електронною поштою.</string>
+    <string name="foreign_card_title">Я проживаю за кордоном</string>
+    <string name="full_info">Переглянути документ</string>
+    <string name="full_name_acronym">ПІБ</string>
+    <string name="gcm_defaultSenderId">638948452516</string>
+    <string name="gender_female">Жінка</string>
+    <string name="gender_male">Чоловік</string>
+    <string name="gender_title">Стать</string>
+    <string name="generic_error_no_device_credential">No PIN, pattern, or password set.</string>
+    <string name="generic_error_no_keyguard">This device does not support PIN, pattern, or password.</string>
+    <string name="generic_error_user_canceled">Authentication canceled by user.</string>
+    <string name="google_api_key">AIzaSyD_c5IE2kRg-7EjXuO6UrwG0Oe5QQpCcl4</string>
+    <string name="google_app_id">1:638948452516:android:c182d0c8bcaf67e0911e31</string>
+    <string name="google_storage_bucket">modu-rezervplus.firebasestorage.app</string>
+    <string name="has_combat_experience">Маю бойовий досвід</string>
+    <string name="has_military_education">Маю завершене навчання в одній із військових сфер</string>
+    <string name="health_decision">Постанова ВЛК:</string>
+    <string name="house_number">Номер будинку</string>
+    <string name="identification_number">РНОКПП:</string>
+    <string name="identification_number_no_semicolon">РНОКПП</string>
+    <string name="in_progress">In progress</string>
+    <string name="indeterminate">Partially checked</string>
+    <string name="interested_in_new_contract_vacancy">Хочу підписати Новий контракт</string>
+    <string name="ios">iOS</string>
+    <string name="last_active">Остання активність:</string>
+    <string name="latest_certificate_revocation_title">Поточні дані від:</string>
+    <string name="least_popular_sort">Найменш популярні</string>
+    <string name="load_certificate_revocations_subtitle">Необхідно тим, хто перевіряє чинність електронних військово-облікових документів</string>
+    <string name="load_certificate_revocations_title">Оновлення бази відкликаних QR кодів</string>
+    <string name="loading_error">Помилка завантаження</string>
+    <string name="loading_message">Перевіряємо інформацію</string>
+    <string name="loading_success">Успішно завантажено</string>
+    <string name="loading_title">Зачекайте</string>
+    <string name="m3c_bottom_sheet_collapse_description">Collapse bottom sheet</string>
+    <string name="m3c_bottom_sheet_dismiss_description">Dismiss bottom sheet</string>
+    <string name="m3c_bottom_sheet_drag_handle_description">Drag handle</string>
+    <string name="m3c_bottom_sheet_expand_description">Expand bottom sheet</string>
+    <string name="m3c_bottom_sheet_pane_title">Bottom Sheet</string>
+    <string name="m3c_date_input_invalid_for_pattern">Date does not match expected pattern: %1$s</string>
+    <string name="m3c_date_input_invalid_not_allowed">Date not allowed: %1$s</string>
+    <string name="m3c_date_input_invalid_year_range">Date out of expected year range %1$s - %2$s</string>
+    <string name="m3c_date_input_label">Date</string>
+    <string name="m3c_date_picker_navigate_to_year_description">Navigate to year %1$s</string>
+    <string name="m3c_date_picker_switch_to_calendar_mode">Switch to calendar input mode</string>
+    <string name="m3c_date_picker_switch_to_day_selection">Swipe to select a year, or tap to switch back to selecting a day</string>
+    <string name="m3c_date_picker_switch_to_input_mode">Switch to text input mode</string>
+    <string name="m3c_date_picker_switch_to_next_month">Change to next month</string>
+    <string name="m3c_date_picker_switch_to_previous_month">Change to previous month</string>
+    <string name="m3c_date_picker_switch_to_year_selection">Switch to selecting a year</string>
+    <string name="m3c_date_picker_today_description">Today</string>
+    <string name="m3c_date_picker_year_picker_pane_title">Year picker visible</string>
+    <string name="m3c_dialog">Dialog</string>
+    <string name="make_request_button_title">Подати запит</string>
+    <string name="med_institution_reference_placeholder">Пошук</string>
+    <string name="med_institution_reference_title">Оберіть заклад охорони здоров’я для проходження ВЛК</string>
+    <string name="med_institutions_empty_message">"Не бачимо закладів охорони здоровʼя
+за вашим запитом
+
+Спробуйте змінити
+критерії пошуку"</string>
+    <string name="menu">Меню</string>
+    <string name="menu_app_questions_answers_title">Питання та відповіді</string>
+    <string name="menu_app_support_subtitle">Маєте додаткові питання про послуги або виникла проблема із застосунком? Чатбот підкаже, що робити.</string>
+    <string name="menu_app_support_title">Служба підтримки</string>
+    <string name="menu_logout_title">Вийти</string>
+    <string name="menu_title">Меню</string>
+    <string name="missed_data">Дані відсутні</string>
+    <string name="most_popular_sort">Найбільш популярні</string>
+    <string name="my_document">Резерв ID</string>
+    <string name="new_certificate_revocation_title">Оновлені дані від:</string>
+    <string name="newest_oldest_sort">Від найновішої до найстарішої</string>
+    <string name="no_brigades_search_results">"Не бачимо підрозділів за
+вашим запитом
+
+Спробуйте змінити
+критерії пошуку"</string>
+    <string name="no_search_results">"Не бачимо вакансій за
+вашим запитом
+
+Спробуйте змінити
+критерії пошуку"</string>
+    <string name="not_enough_memory_space_error">На вашому пристрої недостатньо памʼяті для завантаження бази даних</string>
+    <string name="not_selected">Not selected</string>
+    <string name="notice_attachment_signed_by_name">Опис вкладення підписав:</string>
+    <string name="notice_letter_barcode">Номер поштового відправлення:</string>
+    <string name="notice_position">Посада:</string>
+    <string name="notice_request_address">Адреса:</string>
+    <string name="notice_request_datetime">Дата та час:</string>
+    <string name="notice_request_purpose">Мета виклику:</string>
+    <string name="notice_signed_by_name">Виписав:</string>
+    <string name="notice_signed_datetime">"Дата та час
+підписання:"</string>
+    <string name="notice_tcc_name">ТЦК та СП:</string>
+    <string name="notice_title">Документ</string>
+    <string name="notifications_permission_shouldShowRationale_btn">Відкрити налаштування</string>
+    <string name="notifications_permission_shouldShowRationale_description">Так ви можете отримувати сповіщення</string>
+    <string name="notifications_permission_shouldShowRationale_dismiss_btn">Відміна</string>
+    <string name="notifications_permission_shouldShowRationale_title">Дозвольте Резерв+ доступ до сповіщень</string>
+    <string name="notifications_title">Сповіщення</string>
+    <string name="oldest_newest_sort">Від найстарішої до найновішої</string>
+    <string name="other_sessions">Інші сесії</string>
+    <string name="passport">Серія та номер паспорту:</string>
+    <string name="payment_details_amount">До сплати:</string>
+    <string name="payment_details_button_label">Завантажити в PDF</string>
+    <string name="payment_details_edrpou">ЄДРПОУ:</string>
+    <string name="payment_details_iban">IBAN:</string>
+    <string name="payment_details_payment_destination">Призначення платежу:</string>
+    <string name="payment_details_receiver">Отримувач:</string>
+    <string name="payment_details_title">Оплата за реквізитами</string>
+    <string name="payment_in_progress_button_text">Перевірити статус</string>
+    <string name="payment_in_progress_dialog_button">Зрозуміло</string>
+    <string name="payment_in_progress_dialog_message">Потрібно трохи почекати</string>
+    <string name="payment_in_progress_dialog_title">Процес ще триває</string>
+    <string name="payment_in_progress_loading_text">"Зачекайте,
+опрацьовуємо запит"</string>
+    <string name="payment_method_info_description">"Це можна зробити онлайн прямо тут.
+
+Зверніть увагу: якщо хочете сплатити за реквізитами іншим шляхом, то необхідно буде занести фізичну квитанцію в ТЦК."</string>
+    <string name="payment_method_info_title">Сплатіть штраф</string>
+    <string name="payment_method_payment_details">Реквізити оплати</string>
+    <string name="personal_data_address">Адреса місця проживання</string>
+    <string name="personal_data_birth_date">Дата народження</string>
+    <string name="personal_data_button_submit">Підтвердити</string>
+    <string name="personal_data_checkbox_title">Надіслати копію постанови на Email</string>
+    <string name="personal_data_confirmation_description">Вони потрібні для заяви, яка надійде до {{managerDetails}}</string>
+    <string name="personal_data_confirmation_title">Перевірте дані</string>
+    <string name="personal_data_email">Ваша електронна адреса</string>
+    <string name="personal_data_email_placeholder">my_email@gmail.com</string>
+    <string name="personal_data_full_name">ПІБ</string>
+    <string name="personal_data_passport">РНОКПП або номер паспорта</string>
+    <string name="personal_data_phone_number">Номер телефону</string>
+    <string name="personal_data_updated_in_time">Дані уточнено вчасно</string>
+    <string name="phone">Телефон:</string>
+    <string name="phone_description">Мобільний номер</string>
+    <string name="phone_empty_error">Введіть номер телефону</string>
+    <string name="phone_invalid_error">Введіть коректний номер телефону</string>
+    <string name="phone_number_label">Номер телефону</string>
+    <string name="phone_thanks_title">"Дякуємо,
+номер оновлено"</string>
+    <string name="pin_changed">"Код для входу
+змінено"</string>
+    <string name="please_confirm_your_address">"Будь ласка,
+підтвердіть вашу
+поточну адресу
+проживання"</string>
+    <string name="please_confirm_your_email">"Будь ласка,
+підтвердіть
+контактну
+email адресу"</string>
+    <string name="please_confirm_your_phone">"Будь ласка,
+підтвердіть ваш
+мобільний номер"</string>
+    <string name="postal_index">Індекс</string>
+    <string name="postponement_consent_message">Я надаю згоду на отримання та обробку своїх персональних даних (зокрема, даних про родину) з інших публічних реєстрів. Це може знадобитись для отримання відстрочки</string>
+    <string name="postponement_found_error">Знайшли помилку у даних? Зверніться до</string>
+    <string name="postponement_found_error_underline">служби підтримки</string>
+    <string name="postponement_request_reason_title">Виберіть підставу для відстрочки</string>
+    <string name="postponement_thanks_description">Вже скоро ми повідомимо вас про результат. Увімкніть сповіщення, якщо не зробили цього раніше</string>
+    <string name="postponement_thanks_title">"Чудово!
+Ви подали заявку"</string>
+    <string name="postponement_wait_subtitle">"Шукаємо інформацію у
+реєстрах. Це займає
+деякий час"</string>
+    <string name="postponement_wait_title">Зачекайте</string>
+    <string name="privacy_policy">&lt;a href=https://reserveplus.mod.gov.ua/privacy/>Повідомлення про обробку&lt;br>персональних даних&lt;/a></string>
+    <string name="privacy_policy_title">Політика Конфіденційності</string>
+    <string name="project_id">modu-rezervplus</string>
+    <string name="qr_code_usage_warning">Використовуйте QR-код лише за потреби та відповідально ставтеся до його поширення.</string>
+    <string name="rank">Звання</string>
+    <string name="receiving_full_statement">Зачекайте, отримуємо розширені дані…</string>
+    <string name="receiving_info_from_register">Зачекайте, отримуємо інформацію з реєстру</string>
+    <string name="recommended_vacancies_empty_button">Перейти до розділу</string>
+    <string name="recommended_vacancies_empty_message">Змініть налаштування у фільтрі розділу, щоб побачити інші пропозиції. Або перейдіть до розділу «Всі вакансії»</string>
+    <string name="recommended_vacancies_empty_title">Ви переглянули всі вакансії по вашому запиту</string>
+    <string name="recommended_vacancies_tip_message">"Натисніть плюс і збережіть вакансію, щоб не загубити.
+
+Натисніть мінус, якщо це не те, що ви шукали."</string>
+    <string name="recommended_vacancies_tip_title">Підказка</string>
+    <string name="recommended_vacancies_viewed_message">Змініть налаштування, щоб побачити інші пропозиції. Або перейдіть до розділу «Всі вакансії»</string>
+    <string name="recommended_vacancies_viewed_title">Ви переглянули усі вакансії по запиту</string>
+    <string name="reexamination_date">Дата ВЛК:</string>
+    <string name="region">Область</string>
+    <string name="reload_info">Оновити документ</string>
+    <string name="report_problem">Виправити дані онлайн</string>
+    <string name="report_problem_thanks_description">"Скоро ми повернемося
+до вас із результатом.
+
+Увімкніть сповіщення, якщо
+не зробили цього раніше"</string>
+    <string name="report_problem_thanks_title">Запит надіслано</string>
+    <string name="resend_code_again">Надіслати код ще раз</string>
+    <string name="resend_otp_in">"Відправити код
+повторно через %s"</string>
+    <string name="revocations_outdated_warning_link">Оновіть базу</string>
+    <string name="revocations_outdated_warning_title">Зверніть увагу, база відкликаних QR кодів неактуальна.</string>
+    <string name="rnokpp">РНОКПП або паспорт</string>
+    <string name="save">Зберегти</string>
+    <string name="scan_document_title">Сканувати документ</string>
+    <string name="scan_mode_sheet_evod">QR військово-облікового документа</string>
+    <string name="scan_mode_sheet_notice">QR паперової повістки</string>
+    <string name="scan_mode_sheet_title">Який документ потрібно відсканувати?</string>
+    <string name="scan_mode_sheet_vlk_referral">QR направлення на ВЛК</string>
+    <string name="scanned_card_status_wanted_tip">Наявна інформація про звернення ТЦК до Нацполіції</string>
+    <string name="scanned_vlk_referral_address_title">Адреса:</string>
+    <string name="scanned_vlk_referral_date_title">Направлення зареєстрували:</string>
+    <string name="scanned_vlk_referral_med_institution_title">Установа:</string>
+    <string name="scanned_vlk_referral_name_title">Назва ВЛК:</string>
+    <string name="scanned_vlk_referral_purpose_title">Мета:</string>
+    <string name="scanned_vlk_referral_signatory_title">Підписав:</string>
+    <string name="scanned_vlk_referral_signed_date_title">Дата підпису:</string>
+    <string name="scanned_vlk_referral_start_date_title">Дата початку ВЛК:</string>
+    <string name="scanned_vlk_referral_title">Направлення на ВЛК</string>
+    <string name="scanning_subtitle">"Наведіть рамку на QR-код, який
+хочете відсканувати."</string>
+    <string name="scanning_title">Сканування</string>
+    <string name="search">Пошук</string>
+    <string name="select_other_button">Оберу інші</string>
+    <string name="select_rank">Оберіть звання</string>
+    <string name="select_vacancies_limit_reached_message">За один раз можна відгукнутися лише на 10 вакансій. Подайте заявку на обрані, тоді шукайте далі</string>
+    <string name="select_vacancies_limit_reached_title">Поки досить</string>
+    <string name="select_your_bank">Оберіть свій банк</string>
+    <string name="selected">Selected</string>
+    <string name="services">Сервіси</string>
+    <string name="settings_change_pin_code">Змінити код для входу</string>
+    <string name="settings_notice_notifications">Отримувати сповіщення про повістки, надіслані Укрпоштою</string>
+    <string name="settings_offline_qr_scanning">Перевіряти QR офлайн</string>
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_use_biometrics_title">Дозволити біометрію</string>
+    <string name="show_all_vacancies">Подивитись всі вакансії</string>
+    <string name="sign_application_application_title">Заява</string>
+    <string name="sign_application_applier_address">Адреса місця проживання</string>
+    <string name="sign_application_applier_birth_date">Дата народження</string>
+    <string name="sign_application_applier_email">Електронна адреса</string>
+    <string name="sign_application_applier_full_name">ПІБ</string>
+    <string name="sign_application_applier_phone_number">Номер телефону</string>
+    <string name="sign_application_applier_rnokpp">РНОКПП або номер паспорта</string>
+    <string name="sign_application_applier_title">Від</string>
+    <string name="sign_application_button_submit">Підписати та надіслати</string>
+    <string name="sign_application_receiver_manager">Начальнику</string>
+    <string name="sign_application_receiver_title">Кому</string>
+    <string name="sign_application_title">Підписання заяви</string>
+    <string name="sign_in_progress_button_text">Перевірити статус</string>
+    <string name="sign_in_progress_dialog_button">Зрозуміло</string>
+    <string name="sign_in_progress_dialog_message">Потрібно трохи почекати</string>
+    <string name="sign_in_progress_dialog_title">Процес ще триває</string>
+    <string name="sign_in_progress_loading_text">"Зачекайте,
+опрацьовуємо запит"</string>
+    <string name="skip">Пропустити</string>
+    <string name="sort">Сортування</string>
+    <string name="specialization">ВОС:</string>
+    <string name="ssl_force_update_button_label">Оновити</string>
+    <string name="ssl_force_update_description">Оновіть Резерв+, щоб користуватися усіма новими функціями</string>
+    <string name="ssl_force_update_title">Отакої! У вас застаріла версія застосунку</string>
+    <string name="staff_center_and_sp">ТЦК та СП:</string>
+    <string name="state_empty">Empty</string>
+    <string name="state_off">Off</string>
+    <string name="state_on">On</string>
+    <string name="stay">Залишитись</string>
+    <string name="street">Вулиця</string>
+    <string name="support_v2_ai_banner">Вам відповідає віртуальний асистент на основі штучного інтелекту</string>
+    <string name="support_v2_ai_banner_subtitle">Наразі він працює в тестовому режимі.</string>
+    <string name="support_v2_attach_document">Документ</string>
+    <string name="support_v2_attach_document_formats">PDF до 10 МБ</string>
+    <string name="support_v2_attach_media">Медіафайли</string>
+    <string name="support_v2_attach_media_formats">PNG, JPEG, MP4, MOV до 10 МБ</string>
+    <string name="support_v2_author_ai">ШІ-асистент</string>
+    <string name="support_v2_author_operator">Оператор</string>
+    <string name="support_v2_banner_service_error">Помилка сервісу. Спробуйте пізніше</string>
+    <string name="support_v2_banner_too_many_requests">Ви перевищили ліміт активних чатів. Закрийте один із них, щоб створити новий</string>
+    <string name="support_v2_banner_user_blocked">"Вас тимчасово заблоковано.
+
+Причина: %1$s
+
+Створювати нові запити можна буде з %2$s"</string>
+    <string name="support_v2_banner_user_blocked_reason">порушення правил спілкування</string>
+    <string name="support_v2_chat_closed">"Запит завершено
+Щоб зв'язатися знову, створіть новий запит"</string>
+    <string name="support_v2_chat_copy">Копіювати текст</string>
+    <string name="support_v2_chat_exit_cancel">Скасувати</string>
+    <string name="support_v2_chat_exit_confirm">Вийти з чату</string>
+    <string name="support_v2_chat_exit_message">Введений текст не збережеться</string>
+    <string name="support_v2_chat_exit_title">Хочете вийти з чату?</string>
+    <string name="support_v2_chat_greeting">Ваш помічник у цьому чаті – ШІ-асистент. За потреби він перенаправить ваше питання оператору.</string>
+    <string name="support_v2_chat_placeholder">Напишіть своє питання</string>
+    <string name="support_v2_chat_rate">Залишити оцінку</string>
+    <string name="support_v2_chat_send">Надіслати</string>
+    <string name="support_v2_chat_typing">Шукаємо відповідь …</string>
+    <string name="support_v2_description">Напишіть своє запитання – система опрацює його автоматично, а за потреби підключиться команда Служби підтримки.</string>
+    <string name="support_v2_file_error_message">Невірний формат або розмір. Дозволено до 10 МБ у форматах PDF, PNG, JPEG, MP4, MOV, HEIC, DOC</string>
+    <string name="support_v2_file_error_ok">Зрозуміло</string>
+    <string name="support_v2_file_error_title">Не вдалося завантажити</string>
+    <string name="support_v2_loading_processing">"Зачекайте,
+опрацьовуємо запит"</string>
+    <string name="support_v2_my_requests">Мої запити</string>
+    <string name="support_v2_new_request">Поставити питання</string>
+    <string name="support_v2_rating_exit_cancel">Скасувати</string>
+    <string name="support_v2_rating_exit_confirm">Вийти</string>
+    <string name="support_v2_rating_exit_message">Відгук, який ви залишили, не збережеться</string>
+    <string name="support_v2_rating_exit_title">Ви впевнені, що хочете вийти?</string>
+    <string name="support_v2_rating_go_home">Резерв ID</string>
+    <string name="support_v2_rating_go_to_requests">До моїх запитів</string>
+    <string name="support_v2_rating_options_title">Виберіть один або кілька варіантів</string>
+    <string name="support_v2_rating_submit">Надіслати відгук</string>
+    <string name="support_v2_rating_submit_error_message">Спробуйте ще раз</string>
+    <string name="support_v2_rating_submit_error_retry">Спробувати ще раз</string>
+    <string name="support_v2_rating_submit_error_title">Не вдалося надіслати відгук</string>
+    <string name="support_v2_rating_subtitle">Оцініть роботу служби підтримки</string>
+    <string name="support_v2_rating_success_message">Ви допомагаєте нам ставати кращими</string>
+    <string name="support_v2_rating_success_title">Дякуємо за відгук!</string>
+    <string name="support_v2_rating_title">Ваш відгук</string>
+    <string name="support_v2_request_title">Запит від %1$s</string>
+    <string name="support_v2_send_error_backend_message">Щось пішло не так – повідомлення не відправилося. Спробуйте ще раз пізніше. Якщо таке трапляється не вперше, напишіть нам: %1$s</string>
+    <string name="support_v2_send_error_backend_title">Не вдалося завершити надсилання</string>
+    <string name="support_v2_send_error_offline_message">Не вдалося надіслати повідомлення. Підключіться до інтернету та спробуйте ще раз.</string>
+    <string name="support_v2_send_error_offline_title">Перевірте підключення до інтернету</string>
+    <string name="support_v2_service_error_message">Служба підтримки тимчасово недоступна</string>
+    <string name="support_v2_service_error_title">Технічний збій</string>
+    <string name="support_v2_status_active">АКТИВНИЙ</string>
+    <string name="support_v2_status_closed">ЗАВЕРШЕНО</string>
+    <string name="support_v2_status_has_response">Є ВІДПОВІДЬ</string>
+    <string name="support_v2_status_in_progress">В ОБРОБЦІ</string>
+    <string name="support_v2_status_not_rated">ЗАПИТ НЕ ОЦІНЕНИЙ</string>
+    <string name="support_v2_support_email">cabinet-support@mil.ua</string>
+    <string name="support_v2_title">Служба підтримки</string>
+    <string name="supported_formats">(Підтримувані формати PDF, DOCX, DOC, PNG, JPEG, до 10 МБ)</string>
+    <string name="suspended_fine_type_button_label">Зрозуміло</string>
+    <string name="switch_role">Switch</string>
+    <string name="tab">Tab</string>
+    <string name="template_percent">%1$d percent.</string>
+    <string name="test_user_description_title">Опис:</string>
+    <string name="test_user_gender_title">Стать:</string>
+    <string name="test_user_inn_title">РНОКПП:</string>
+    <string name="test_users_title">Тестові користувачі</string>
+    <string name="text_thx_feedback">Дякуємо за відгук</string>
+    <string name="text_understood">Зрозуміло</string>
+    <string name="thank_you_for_updating_data_repeated_onboarding_subtitle">Якщо потрібно, внести зміни в них можна, натиснувши кнопку «+» на Резерв ID</string>
+    <string name="thank_you_for_updating_data_subtitle">"Ваша відповідальність —
+приклад для інших!"</string>
+    <string name="thank_you_for_updating_data_title">"Дякуємо,
+що оновили дані"</string>
+    <string name="today">сьогодні</string>
+    <string name="tooltip_description">tooltip</string>
+    <string name="tooltip_label">show tooltip</string>
+    <string name="unique_number">Номер в реєстрі Оберіг:</string>
+    <string name="unknown_fine_type_button_label">Зрозуміло</string>
+    <string name="unknown_fine_type_text">Деталі вашої справи в застосунку недоступні.&lt;br/>&lt;br/>Для того, щоб їх отримати, зверніться до вашого&amp;nbsp;ТЦК&amp;nbsp;та&amp;nbsp;СП.</string>
+    <string name="unsupported_file_format_message">"Файл, який ви намагаєтесь завантажити, має невірний формат.
+Використовуйте файли форматів .jpeg, .png, .pdf, .doc або .docx."</string>
+    <string name="unsupported_file_format_title">Помилка завантаження файлу</string>
+    <string name="update">Оновити</string>
+    <string name="update_app">Оновити застосунок</string>
+    <string name="update_certificate_dialog_action">Оновити</string>
+    <string name="update_certificate_dialog_cancel">Скасувати</string>
+    <string name="update_certificate_dialog_message">Поки генеруватиметься нова версія документу, деякі послуги можуть бути недоступні</string>
+    <string name="vacancies">Вакансії</string>
+    <string name="vacancies_afu">"Вакансії в
+Cилах оборони
+України"</string>
+    <string name="vacancies_all">Всі вакансії</string>
+    <string name="vacancies_answer">Відповісти</string>
+    <string name="vacancies_cdto">IT-вертикаль</string>
+    <string name="vacancies_drone_army">Лінія дронів</string>
+    <string name="vacancies_favorite">Обрані</string>
+    <string name="vacancies_for_disabled">"Вакансії для
+придатних до
+небойової служби"</string>
+    <string name="vacancies_for_disabled_info_message">"Небойовою вважається служба у частинах забезпечення, ТЦК та СП, навчальних центрах, підрозділах логістики чи зв'язку тощо."</string>
+    <string name="vacancies_for_you">Для вас</string>
+    <string name="vacancies_infantry">Нові контракти</string>
+    <string name="vacancies_my">Мої вакансії</string>
+    <string name="vacancies_new_elite">Контракт 18-24</string>
+    <string name="vacancies_search">Пошук вакансії</string>
+    <string name="vacancies_show">Подивитись вакансії</string>
+    <string name="vacancies_show_number">Показати %d вакансій</string>
+    <string name="vacancies_welcome_message">"Тут знаходяться актуальні посади для служби в українському війську, надані у співпраці з платформою Lobby X.
+
+Це найбільший перелік пропозицій, який допоможе знайти ту, що підходить саме вам. Обирайте варіанти, подавайте заявки у кілька кліків і очікуйте відповіді від бригади"</string>
+    <string name="vacancies_welcome_start">Почати</string>
+    <string name="veteran_label">ВЕТЕРАН</string>
+    <string name="viber_support_title">Viber</string>
+    <string name="vlk_brigades_button_label">Продовжити</string>
+    <string name="vlk_brigades_empty_message">"Не бачимо підрозділів за
+вашим запитом
+
+Спробуйте змінити
+критерії пошуку"</string>
+    <string name="vlk_brigades_placeholder">Пошук підрозділу</string>
+    <string name="vlk_brigades_title">Виберіть бригаду для проходження служби</string>
+    <string name="vlk_submit_data_button_text">Підтвердити</string>
+    <string name="waiting_for_you_card_title">На вас чекають</string>
+    <string name="welcome_link">Погоджуюсь із &lt;a href=https://reserveplus.mod.gov.ua/privacy/>Правилами обробки персональних даних&lt;/a></string>
+    <string name="welcome_step_1">Авторизуйтесь через BankID або Дія.Підпис.</string>
+    <string name="welcome_step_2">Створіть пароль та налаштуйте вхід.</string>
+    <string name="welcome_title">Для доступу до застосунку:</string>
+    <string name="while_waiting_check_vacancies">Поки ми шукаємо дані, перегляньте вакансії в Силах оборони</string>
+    <string name="wrong_otp_try_again">Невірний код, спробуйте ще</string>
+    <string name="yes_this_is_my_address">Так, це моя адреса</string>
+    <string name="yes_this_is_my_number">Так, це мій номер</string>
+    <string name="yesterday">вчора</string>
+    <string name="your_address_title">"Ваша адреса
+проживання"</string>
+    <string name="your_email_label">Ваша електронна адреса</string>
+    <string name="your_email_subtitle">"Вкажіть актуальну електронну
+пошту — на неї прийде код підтвердження."</string>
+    <string name="your_email_title">Ваш email</string>
+    <string name="your_phone_number_subtitle">Вкажіть актуальний номер — на нього прийде код підтвердження.</string>
+    <string name="your_phone_number_title">Ваш мобільний номер</string>
+</resources>
