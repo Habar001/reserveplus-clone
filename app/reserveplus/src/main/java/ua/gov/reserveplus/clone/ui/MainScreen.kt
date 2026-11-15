@@ -59,6 +59,7 @@ import ua.gov.reserveplus.design.components.BrandWordmark
 import ua.gov.reserveplus.design.components.NotificationPill
 import ua.gov.reserveplus.design.R as DRes
 import ua.gov.reserveplus.design.components.TickerBar
+import ua.gov.reserveplus.clone.data.Profile
 
 @Composable
 fun MainScreen(
@@ -175,10 +176,10 @@ private fun IdentityCard() {
                 Spacer(Modifier.width(Space.xl))
                 Column(Modifier.weight(1f)) {
                     Text("Дата народження", style = Label, color = InkMuted)
-                    Text("24.08.1991", style = H1.copy(fontSize = 20.sp), color = Ink)
+                    Text(Profile.BIRTH_DATE, style = H1.copy(fontSize = 20.sp), color = Ink)
                     Spacer(Modifier.height(Space.l))
                     Text("Відстрочка до:", style = Label, color = InkMuted)
-                    Text("24.08.2026", style = H1.copy(fontSize = 20.sp), color = Ink)
+                    Text(Profile.DEFERMENT_UNTIL, style = H1.copy(fontSize = 20.sp), color = Ink)
                 }
             }
 
@@ -194,7 +195,7 @@ private fun IdentityCard() {
             Text("Резервіст", style = Caption, color = InkMuted)
             Spacer(Modifier.height(Space.xs))
             Text(
-                "Воля Святослав Володимирович",
+                Profile.FULL_NAME,
                 style = H1.copy(fontSize = 24.sp, lineHeight = 27.sp, fontFamily = EUkraine, fontWeight = FontWeight.Bold),
                 color = Ink
             )

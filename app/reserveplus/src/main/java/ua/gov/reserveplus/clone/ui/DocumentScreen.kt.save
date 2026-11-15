@@ -1,0 +1,317 @@
+package ua.gov.reserveplus.clone.ui
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import ua.gov.reserveplus.clone.ui.components.QrCode
+import ua.gov.reserveplus.design.Caption
+import ua.gov.reserveplus.design.EUkraine
+import ua.gov.reserveplus.design.H1
+import ua.gov.reserveplus.design.Ink
+import ua.gov.reserveplus.design.InkMuted
+import ua.gov.reserveplus.design.Label
+import ua.gov.reserveplus.design.LineSoft
+import ua.gov.reserveplus.design.Radius
+import ua.gov.reserveplus.design.ReserveTheme
+import ua.gov.reserveplus.design.Sand
+import ua.gov.reserveplus.design.Space
+import ua.gov.reserveplus.design.components.BrandWordmark
+import ua.gov.reserveplus.design.R as DRes
+import androidx.compose.foundation.Canvas
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.drawscope.Stroke
+import ua.gov.reserveplus.design.SuccessGreen
+
+@Composable
+fun DocumentScreen(onBack: () -> Unit) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(Sand)
+            .statusBarsPadding()
+    ) {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = Space.screen, vertical = Space.m),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            BackArrow { onBack() }
+        }
+
+        Column(
+            Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = Space.screen)
+                .navigationBarsPadding()
+        ) {
+            Row(Modifier.fillMaxWidth()) {
+                Column(Modifier.weight(1f)) {
+                    BrandWordmark(size = 26)
+                    Spacer(Modifier.height(Space.xs))
+                    Text("Військово-обліковий документ", style = Caption, color = Ink)
+                    Text("Сформовано: 09.12.2025, 10:33", style = Caption, color = InkMuted)
+                }
+                Row(verticalAlignment = Alignment.Top) {
+                    Icon(
+                        painter = painterResource(DRes.drawable.ic_trident),
+                        contentDescription = null,
+                        tint = Ink,
+                        modifier = Modifier.width(28.dp).height(34.dp)
+                    )
+                    Spacer(Modifier.width(Space.s))
+                    Column {
+                        Text("Міністерство", style = Caption, color = Ink)
+                        Text("оборони України", style = Caption, color = Ink)
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(Space.l))
+
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .border(1.dp, Ink, RoundedCornerShape(Radius.m))
+                    .padding(Space.xl)
+            ) {
+                Row {
+                    QrCode(content = "reserveplus-clone-0001", size = 132.dp)
+                    Spacer(Modifier.width(Space.xl))
+                    Column(Modifier.weight(1f)) {
+                        StatusChip()
+                        Spacer(Modifier.height(Space.m))
+                        Text(
+                            Profile.FULL_NAME,
+                            style = H1.copy(fontSize = 22.sp, lineHeight = 25.sp, fontFamily = EUkraine, fontWeight = FontWeight.Bold),
+                            color = Ink
+                        )
+                        Spacer(Modifier.height(Space.l))
+                        Field("Дата народження", Profile.BIRTH_DATE)
+                        Spacer(Modifier.height(Space.m))
+                        Field("Категорія обліку", "Військовозобов'язаний")
+                        Spacer(Modifier.height(Space.m))
+                        Field("Відстрочка до", "31.12.2024")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.xl))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Space.l)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Сформовано", "30.05.2024, 13:57", valueSize = 11)
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Дійсний до", "10.02.2024", valueSize = 11)
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Бронювання до", "10.08.2024", valueSize = 11)
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    DocCheckBadge()
+                    Spacer(Modifier.width(Space.s))
+                    Text("Дані уточнено вчасно", style = Caption, color = SuccessGreen)
+                    Spacer(Modifier.weight(1f))
+                    Text("19.05.2024", style = Caption, color = InkMuted)
+                }
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Field("ТЦК та СП", "Печерський РТЦК та СП")
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Звання", "Солдат")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Номер в реєстрі Оберіг", "1234-5678-9012")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+
+                Field("ВОС", "999999")
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Тип відстрочки", "За станом здоров'я")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Відстрочка до", "31.12.2024")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Причина звернення до Нацполіції", "Не з'явився за повісткою")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Дата звернення", "12.05.2024")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Постанова ВЛК", "Тимчасово непридатний")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Дата ВЛК", "20.04.2024")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Група інвалідності", "—")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Діє до", "—")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+
+                Field("Причина інвалідності", "—")
+
+                Spacer(Modifier.height(Space.l))
+                Divider()
+                Spacer(Modifier.height(Space.l))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
+                    Column(Modifier.weight(1f)) {
+                        Field("Адреса проживання", "м. Київ, вул. Хрещатик, 1")
+                    }
+                    Column(Modifier.weight(1f)) {
+                        Field("Телефон", "+380 44 000 00 00")
+                    }
+                }
+
+                Spacer(Modifier.height(Space.l))
+
+                Field("Email", "example@ukr.net")
+            }
+
+            Spacer(Modifier.height(Space.huge))
+        }
+    }
+}
+
+@Composable
+private fun Field(label: String, value: String, valueSize: Int = 14) {
+    Text(label, style = Label, color = InkMuted)
+    Spacer(Modifier.height(Space.xxs))
+    Text(value, style = Caption.copy(fontSize = valueSize.sp), color = Ink)
+}
+
+@Composable
+private fun StatusChip() {
+    Text(
+        "На обліку",
+        style = Caption,
+        color = Ink,
+        modifier = Modifier
+            .border(1.dp, Ink, RoundedCornerShape(Radius.s))
+            .padding(horizontal = Space.m, vertical = Space.xs)
+    )
+}
+
+@Composable
+private fun Divider() {
+    Spacer(
+        Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .background(LineSoft)
+    )
+}
+
+@Preview(device = "spec:width=1080px,height=2400px,dpi=420")
+@Composable
+private fun DocumentPreview() {
+    ReserveTheme { DocumentScreen {} }
+}
+
+@Composable
+private fun BackArrow(onClick: () -> Unit) {
+    Canvas(Modifier.size(24.dp).clickable { onClick() }) {
+        val w = size.width
+        val h = size.height
+        val p = Path().apply {
+            moveTo(w * 0.62f, h * 0.22f)
+            lineTo(w * 0.34f, h * 0.5f)
+            lineTo(w * 0.62f, h * 0.78f)
+        }
+        drawPath(p, Ink, style = Stroke(width = w * 0.08f, cap = StrokeCap.Round, join = StrokeJoin.Round))
+    }
+}
+
+@Composable
+private fun DocCheckBadge() {
+    Canvas(Modifier.size(18.dp)) {
+        drawCircle(SuccessGreen)
+        val w = size.width
+        val h = size.height
+        val p = Path().apply {
+            moveTo(w * 0.28f, h * 0.52f)
+            lineTo(w * 0.44f, h * 0.68f)
+            lineTo(w * 0.72f, h * 0.34f)
+        }
+        drawPath(p, androidx.compose.ui.graphics.Color.White, style = Stroke(width = w * 0.14f, cap = StrokeCap.Round, join = StrokeJoin.Round))
+    }
+}

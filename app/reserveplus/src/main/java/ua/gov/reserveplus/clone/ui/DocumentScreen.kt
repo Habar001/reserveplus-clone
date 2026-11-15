@@ -48,6 +48,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import ua.gov.reserveplus.design.SuccessGreen
+import ua.gov.reserveplus.clone.data.Profile
 
 @Composable
 fun DocumentScreen(onBack: () -> Unit) {
@@ -104,22 +105,22 @@ fun DocumentScreen(onBack: () -> Unit) {
                     .padding(Space.xl)
             ) {
                 Row {
-                    QrCode(content = "reserveplus-clone-0001", size = 132.dp)
+                    QrCode(content = Profile.QR_PAYLOAD, size = 132.dp)
                     Spacer(Modifier.width(Space.xl))
                     Column(Modifier.weight(1f)) {
                         StatusChip()
                         Spacer(Modifier.height(Space.m))
                         Text(
-                            "Українець Ярослав Ігорович",
+                            Profile.FULL_NAME,
                             style = H1.copy(fontSize = 22.sp, lineHeight = 25.sp, fontFamily = EUkraine, fontWeight = FontWeight.Bold),
                             color = Ink
                         )
                         Spacer(Modifier.height(Space.l))
-                        Field("Дата народження", "24.08.1996")
+                        Field("Дата народження", Profile.BIRTH_DATE)
                         Spacer(Modifier.height(Space.m))
-                        Field("Категорія обліку", "Військовозобов'язаний")
+                        Field("Категорія обліку", Profile.CATEGORY)
                         Spacer(Modifier.height(Space.m))
-                        Field("Відстрочка до", "31.12.2024")
+                        Field("Відстрочка до", Profile.DEFERMENT_UNTIL)
                     }
                 }
 
@@ -154,7 +155,7 @@ fun DocumentScreen(onBack: () -> Unit) {
                 Divider()
                 Spacer(Modifier.height(Space.l))
 
-                Field("ТЦК та СП", "Печерський РТЦК та СП")
+                Field("ТЦК та СП", Profile.MILITARY_OFFICE)
 
                 Spacer(Modifier.height(Space.l))
                 Divider()
@@ -162,16 +163,16 @@ fun DocumentScreen(onBack: () -> Unit) {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
                     Column(Modifier.weight(1f)) {
-                        Field("Звання", "Солдат")
+                        Field("Звання", Profile.RANK)
                     }
                     Column(Modifier.weight(1f)) {
-                        Field("Номер в реєстрі Оберіг", "1234-5678-9012")
+                        Field("Номер в реєстрі Оберіг", Profile.REG_NUMBER)
                     }
                 }
 
                 Spacer(Modifier.height(Space.l))
 
-                Field("ВОС", "999999")
+                Field("ВОС", Profile.VOS)
 
                 Spacer(Modifier.height(Space.l))
                 Divider()
@@ -235,16 +236,16 @@ fun DocumentScreen(onBack: () -> Unit) {
 
                 Row(horizontalArrangement = Arrangement.spacedBy(Space.xl)) {
                     Column(Modifier.weight(1f)) {
-                        Field("Адреса проживання", "м. Київ, вул. Хрещатик, 1")
+                        Field("Адреса проживання", Profile.ADDRESS)
                     }
                     Column(Modifier.weight(1f)) {
-                        Field("Телефон", "+380 44 000 00 00")
+                        Field("Телефон", Profile.PHONE)
                     }
                 }
 
                 Spacer(Modifier.height(Space.l))
 
-                Field("Email", "example@ukr.net")
+                Field("Email", Profile.EMAIL)
             }
 
             Spacer(Modifier.height(Space.huge))
