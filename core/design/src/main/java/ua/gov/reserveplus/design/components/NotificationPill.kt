@@ -15,31 +15,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import ua.gov.reserveplus.design.Caption
 import ua.gov.reserveplus.design.Ink
 import ua.gov.reserveplus.design.Paper
 import ua.gov.reserveplus.design.R
 import ua.gov.reserveplus.design.Radius
-import ua.gov.reserveplus.design.Space
 
 @Composable
-fun NotificationPill(count: String, modifier: Modifier = Modifier) {
+fun NotificationPill(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
-            .height(40.dp)
+            .height(60.dp)
             .background(Paper, RoundedCornerShape(Radius.pill))
-            .padding(horizontal = Space.l),
+            .padding(horizontal = 28.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text("Сповіщення", style = Caption, color = Ink)
-        Spacer(Modifier.width(Space.s))
+        Text("Сповіщення", style = Caption.copy(fontSize = 18.sp), color = Ink)
+        Spacer(Modifier.width(10.dp))
         Icon(
             painter = painterResource(R.drawable.ic_notifications),
             contentDescription = null,
             tint = Ink,
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(26.dp)
         )
-        Spacer(Modifier.width(Space.xs))
-        Text(count, style = Caption, color = Ink)
     }
 }
