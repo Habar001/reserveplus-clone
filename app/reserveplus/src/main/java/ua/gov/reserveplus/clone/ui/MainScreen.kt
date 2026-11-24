@@ -75,6 +75,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.launch
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.graphics.Color
 
 private const val TICKER = "026 • Документ оновлено о 21:31  |  22.06.2026  •  Документ оновлено о 21:31   •   "
 
@@ -212,9 +213,9 @@ private fun PreviewCard(onOpen: () -> Unit, onPlus: () -> Unit) {
         Column(
             Modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(20.dp))
+                .clip(RoundedCornerShape(10.dp))
                 .background(CardOlive)
-                .border(1.dp, BorderSoft, RoundedCornerShape(20.dp))
+                .border(1.dp, BorderSoft, RoundedCornerShape(10.dp))
                 .clickable { onOpen() }
         ) {
             Column(Modifier.padding(horizontal = Space.xl)) {
@@ -253,7 +254,7 @@ private fun PreviewCard(onOpen: () -> Unit, onPlus: () -> Unit) {
                     Column(Modifier.weight(1f)) {
                         Text(
                             "Дата народження:",
-                            style = Caption.copy(fontSize = 14.sp, lineHeight = 19.sp),
+                            style = Caption.copy(fontSize = 13.sp, lineHeight = 18.sp),
                             color = InkMuted,
                             maxLines = 1,
                             softWrap = false
@@ -277,20 +278,20 @@ private fun PreviewCard(onOpen: () -> Unit, onPlus: () -> Unit) {
             TickerBar(text = TICKER, textSize = 12.sp)
 
             Column(Modifier.padding(horizontal = Space.xl)) {
-                Spacer(Modifier.height(43.dp))
+                Spacer(Modifier.height(22.dp))
                 Text(
                     "Знято з обліку",
                     style = Caption.copy(fontSize = 13.sp, lineHeight = 17.sp),
-                    color = InkMuted
+                    color = Color(0xFF6B6B62)
                 )
                 Spacer(Modifier.height(6.dp))
                 Text(
                     displayName(Profile.FULL_NAME),
                     style = H1.copy(
-                        fontSize = 24.sp,
-                        lineHeight = 21.sp,
+                        fontSize = 25.sp,
+                        lineHeight = 27.sp,
                         fontFamily = EUkraine,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Normal
                     ),
                     color = Ink,
                     modifier = Modifier.fillMaxWidth().padding(end = 64.dp)
