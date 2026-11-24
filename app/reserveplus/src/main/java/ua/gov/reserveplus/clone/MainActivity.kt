@@ -20,7 +20,6 @@ import ua.gov.reserveplus.clone.ui.FinesScreen
 import ua.gov.reserveplus.clone.ui.LoginScreen
 import ua.gov.reserveplus.clone.ui.MainScreen
 import ua.gov.reserveplus.clone.ui.MenuScreen
-import ua.gov.reserveplus.clone.ui.QrScreen
 import ua.gov.reserveplus.clone.ui.ServicesScreen
 import ua.gov.reserveplus.clone.ui.VacanciesScreen
 import ua.gov.reserveplus.design.components.BottomNav
@@ -45,7 +44,6 @@ class MainActivity : ComponentActivity() {
                     Box(Modifier.weight(1f)) {
                         when (screen) {
                             "login" -> LoginScreen(onLogin = { screen = "main" })
-                            "qr" -> QrScreen(onBack = { screen = "main" })
                             "services" -> ServicesScreen(
                                 onBack = { screen = "main" },
                                 onOpen = { route ->
@@ -67,7 +65,7 @@ class MainActivity : ComponentActivity() {
                                 onCreate = { screen = "main" }
                             )
                             else -> MainScreen(
-                                onOpenQr = { screen = "qr" }
+                                onOpenQr = { screen = "main" }
                             )
                         }
                     }

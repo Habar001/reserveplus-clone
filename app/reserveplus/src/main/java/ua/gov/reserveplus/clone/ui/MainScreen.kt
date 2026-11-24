@@ -1,5 +1,7 @@
 package ua.gov.reserveplus.clone.ui
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -40,9 +42,11 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,13 +64,19 @@ import ua.gov.reserveplus.design.Paper
 import ua.gov.reserveplus.design.Radius
 import ua.gov.reserveplus.design.ReserveTheme
 import ua.gov.reserveplus.design.Sand
+import ua.gov.reserveplus.design.SandSunken
 import ua.gov.reserveplus.design.Space
 import ua.gov.reserveplus.design.SuccessGreen
 import ua.gov.reserveplus.design.components.NotificationPill
 import ua.gov.reserveplus.design.components.TickerBar
 import ua.gov.reserveplus.design.R as DRes
+import androidx.compose.ui.unit.Dp
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 
-private const val TICKER = "026 • Документ оновлено о 21:31  |  22.06.2026  •  Документ оновлено о 21:31"
+private const val TICKER = "026 • Документ оновлено о 21:31  |  22.06.2026  •  Документ оновлено о 21:31   •   "
 
 private const val DISCHARGE_GROUND = "військовослужбовці"
 private const val VLC_VERDICT = "Придатний"
@@ -74,6 +84,7 @@ private const val VLC_DATE = "03.10.2025"
 private const val POSITION = "Молодших спеціалістів з медичною освітою,Технік зубний"
 private const val REGISTRY = "181020201362829700053"
 private const val LAST_UPDATE = "03.10.2025"
+private const val QR_HINT = "Використовуйте QR-код лише за потреби та відповідально ставтеся до його поширення."
 
 private fun displayName(raw: String): String {
     val parts = raw.trim().split(" ").filter { it.isNotBlank() }
@@ -86,8 +97,9 @@ private fun displayName(raw: String): String {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(onOpenQr: () -> Unit) {
-    var sheet by remember { mutableStateOf(false) }
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    var panel by remember { mutableStateOf<String?>(null) }
+    var flipped by remember { mutableStateOf(false) }
+    val panelState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     Column(
         Modifier
@@ -112,42 +124,107 @@ fun MainScreen(onOpenQr: () -> Unit) {
                 .padding(horizontal = 25.dp)
                 .padding(bottom = 100.dp)
         ) {
-            Spacer(Modifier.height(96.dp))
-            PreviewCard(onOpen = { sheet = true }, onQr = onOpenQr)
+            Spacer(Modifier.height(100.dp))
+            FlipCard(
+                flipped = flipped,
+                front = {
+                    PreviewCard(
+                        onOpen = { flipped = true },
+                        onPlus = { panel = "menu" }
+                    )
+                },
+                back = {
+                    QrCard(onBack = { flipped = false })
+                }
+            )
             Spacer(Modifier.height(Space.xxl))
         }
     }
 
-    if (sheet) {
+    val menuOpen = panel == "menu"
+
+    if (panel != null) {
         ModalBottomSheet(
-            onDismissRequest = { sheet = false },
-            sheetState = sheetState,
-            containerColor = Sand,
-            modifier = Modifier.fillMaxWidth()
+            onDismissRequest = { panel = null },
+            sheetState = panelState,
+            containerColor = if (menuOpen) Paper else Sand,
+            sheetMaxWidth = Dp.Unspecified,
+            shape = if (menuOpen) RoundedCornerShape(28.dp) else RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
+            dragHandle = {
+                Box(
+                    Modifier
+                        .padding(top = 10.dp, bottom = 8.dp)
+                        .size(width = if (menuOpen) 42.dp else 44.dp, height = 6.dp)
+                        .background(Ink, RoundedCornerShape(3.dp))
+                )
+            },
+            modifier = if (menuOpen) {
+                Modifier
+                    .fillMaxWidth()
+                    .padding(start = 19.dp, end = 19.dp, bottom = 40.dp)
+            } else {
+                Modifier.fillMaxWidth()
+            }
         ) {
-            SheetContent()
+            if (menuOpen) {
+                MenuSheet(onDocument = { panel = "doc" })
+            } else {
+                SheetContent()
+            }
         }
     }
 }
 
 @Composable
-private fun PreviewCard(onOpen: () -> Unit, onQr: () -> Unit) {
-    Box(Modifier.fillMaxWidth()) {
+private fun FlipCard(
+    flipped: Boolean,
+    front: @Composable () -> Unit,
+    back: @Composable () -> Unit
+) {
+    val rotation by animateFloatAsState(
+        targetValue = if (flipped) 180f else 0f,
+        animationSpec = tween(durationMillis = 520),
+        label = "flip"
+    )
+
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .height(537.dp)
+            .graphicsLayer {
+                rotationY = rotation
+                cameraDistance = 12f * density
+            }
+    ) {
+        if (rotation <= 90f) {
+            front()
+        } else {
+            Box(Modifier.graphicsLayer { rotationY = 180f }) {
+                back()
+            }
+        }
+    }
+}
+
+@Composable
+private fun PreviewCard(onOpen: () -> Unit, onPlus: () -> Unit) {
+    Box(Modifier.fillMaxSize()) {
         Column(
             Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .clip(RoundedCornerShape(20.dp))
                 .background(CardOlive)
                 .border(1.dp, BorderSoft, RoundedCornerShape(20.dp))
                 .clickable { onOpen() }
         ) {
             Column(Modifier.padding(horizontal = Space.xl)) {
-                Spacer(Modifier.height(Space.xl))
+                Spacer(Modifier.height(20.dp))
                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
                     Text(
                         "Резерв ID",
                         style = H1.copy(
-                            fontSize = 30.sp,
+                            fontSize = 23.sp,
+                            lineHeight = 28.sp,
                             fontFamily = EUkraine,
                             fontWeight = FontWeight.Normal
                         ),
@@ -158,32 +235,35 @@ private fun PreviewCard(onOpen: () -> Unit, onQr: () -> Unit) {
                         painter = painterResource(DRes.drawable.ic_trident),
                         contentDescription = null,
                         tint = Ink,
-                        modifier = Modifier.width(40.dp).height(48.dp)
+                        modifier = Modifier.width(32.dp).height(40.dp)
                     )
                 }
-                Spacer(Modifier.height(Space.l))
+                Spacer(Modifier.height(16.dp))
                 Row {
                     Image(
                         painter = painterResource(DRes.drawable.photo_owner),
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .width(162.dp)
-                            .height(210.dp)
+                            .width(164.dp)
+                            .height(222.dp)
                             .clip(RoundedCornerShape(12.dp))
                     )
-                    Spacer(Modifier.width(Space.l))
+                    Spacer(Modifier.width(22.dp))
                     Column(Modifier.weight(1f)) {
                         Text(
                             "Дата народження:",
-                            style = Caption.copy(fontSize = 17.sp),
-                            color = InkMuted
+                            style = Caption.copy(fontSize = 14.sp, lineHeight = 19.sp),
+                            color = InkMuted,
+                            maxLines = 1,
+                            softWrap = false
                         )
                         Spacer(Modifier.height(Space.xxs))
                         Text(
                             Profile.BIRTH_DATE,
                             style = H1.copy(
-                                fontSize = 19.sp,
+                                fontSize = 18.sp,
+                                lineHeight = 23.sp,
                                 fontFamily = EUkraine,
                                 fontWeight = FontWeight.Normal
                             ),
@@ -194,42 +274,174 @@ private fun PreviewCard(onOpen: () -> Unit, onQr: () -> Unit) {
                 Spacer(Modifier.height(64.dp))
             }
 
-            TickerBar(text = TICKER, textSize = 17.sp)
+            TickerBar(text = TICKER, textSize = 12.sp)
 
             Column(Modifier.padding(horizontal = Space.xl)) {
-                Spacer(Modifier.height(Space.l))
-                Text("Знято з обліку", style = Caption.copy(fontSize = 18.sp), color = InkMuted)
-                Spacer(Modifier.height(Space.xs))
+                Spacer(Modifier.height(43.dp))
+                Text(
+                    "Знято з обліку",
+                    style = Caption.copy(fontSize = 13.sp, lineHeight = 17.sp),
+                    color = InkMuted
+                )
+                Spacer(Modifier.height(6.dp))
                 Text(
                     displayName(Profile.FULL_NAME),
                     style = H1.copy(
-                        fontSize = 32.sp,
-                        lineHeight = 35.sp,
+                        fontSize = 24.sp,
+                        lineHeight = 21.sp,
                         fontFamily = EUkraine,
                         fontWeight = FontWeight.Medium
                     ),
                     color = Ink,
-                    modifier = Modifier.fillMaxWidth().padding(end = 60.dp)
+                    modifier = Modifier.fillMaxWidth().padding(end = 64.dp)
                 )
-                Spacer(Modifier.height(56.dp))
+                Spacer(Modifier.height(2.dp))
             }
         }
 
         Box(
             Modifier
                 .align(Alignment.BottomEnd)
-                .padding(end = Space.xl, bottom = 36.dp)
-                .size(52.dp)
+                .padding(end = Space.xl, bottom = 14.dp)
+                .size(46.dp)
                 .background(AccentOrange, CircleShape)
-                .clickable { onQr() },
+                .clickable { onPlus() },
             contentAlignment = Alignment.Center
         ) {
             Canvas(Modifier.size(20.dp)) {
                 val c = size.width / 2f
-                drawLine(Ink, Offset(c, 0f), Offset(c, size.height), 3.2f, StrokeCap.Butt)
-                drawLine(Ink, Offset(0f, c), Offset(size.width, c), 3.2f, StrokeCap.Butt)
+                drawLine(Ink, Offset(c, 0f), Offset(c, size.height), 4.5f, StrokeCap.Butt)
+                drawLine(Ink, Offset(0f, c), Offset(size.width, c), 4.5f, StrokeCap.Butt)
             }
         }
+    }
+}
+
+@Composable
+private fun QrCard(onBack: () -> Unit) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(20.dp))
+            .background(Paper)
+            .border(1.dp, BorderSoft, RoundedCornerShape(20.dp))
+            .clickable { onBack() }
+            .padding(horizontal = 26.dp)
+            .padding(top = 40.dp, bottom = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            "QR-код дійсний до " + Profile.QR_VALID_UNTIL,
+            style = Caption.copy(
+                fontSize = 13.sp,
+                lineHeight = 18.sp,
+                fontWeight = FontWeight.Normal
+            ),
+            color = Ink,
+            textAlign = TextAlign.Center,
+            maxLines = 1,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(Modifier.height(14.dp))
+        Image(
+            painter = painterResource(DRes.drawable.qr_default),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier.size(268.dp)
+        )
+        Spacer(Modifier.height(30.dp))
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(12.dp))
+                .background(CardOlive)
+                .border(1.dp, BorderSoft, RoundedCornerShape(12.dp))
+                .padding(16.dp)
+        ) {
+            Box(
+                Modifier
+                    .size(19.dp)
+                    .border(1.4.dp, InkMuted, RoundedCornerShape(5.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    "i",
+                    style = Caption.copy(
+                        fontSize = 15.sp,
+                        fontFamily = FontFamily.Serif,
+                        fontStyle = FontStyle.Italic
+                    ),
+                    color = Ink
+                )
+            }
+            Spacer(Modifier.width(16.dp))
+            Text(
+                "Використовуйте QR-код лише за потреби та відповідально ставтеся до його поширення.",
+                style = Caption.copy(
+                    fontSize = 14.sp,
+                    lineHeight = 19.sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                color = Ink
+            )
+        }
+    }
+}
+
+@Composable
+private fun QrImage(modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(DRes.drawable.qr_default),
+        contentDescription = null,
+        contentScale = ContentScale.Fit,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun MenuSheet(onDocument: () -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 23.dp)
+            .padding(top = 30.dp, bottom = 8.dp)
+    ) {
+        MenuRow(DRes.drawable.ic_menu_info, "Переглянути документ", onClick = onDocument)
+        Spacer(Modifier.height(28.dp))
+        MenuRow(DRes.drawable.ic_menu_pdf, "Завантажити PDF", onClick = {})
+        Spacer(Modifier.height(28.dp))
+        MenuRow(DRes.drawable.ic_menu_refresh, "Оновити документ", onClick = {})
+    }
+}
+
+@Composable
+private fun MenuRow(icon: Int, text: String, onClick: () -> Unit) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+            .padding(vertical = Space.xs),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            painter = painterResource(icon),
+            contentDescription = null,
+            tint = Ink,
+            modifier = Modifier.size(27.dp)
+        )
+        Spacer(Modifier.width(Space.xl))
+        Text(
+            text,
+            style = H1.copy(
+                fontSize = 20.sp,
+                lineHeight = 26.sp,
+                fontFamily = EUkraine,
+                fontWeight = FontWeight.Normal
+            ),
+            color = Ink,
+            maxLines = 1,
+            softWrap = false
+        )
     }
 }
 
@@ -238,14 +450,16 @@ private fun SheetContent() {
     Column(
         Modifier
             .fillMaxWidth()
-            .fillMaxHeight(0.92f)
+            .fillMaxHeight(0.96f)
             .verticalScroll(rememberScrollState())
     ) {
-        Row(Modifier.fillMaxWidth().padding(horizontal = Space.xl)) {
+        Spacer(Modifier.height(50.dp))
+        Row(Modifier.fillMaxWidth().padding(horizontal = 26.dp)) {
             Text(
                 "Резерв ID",
                 style = H1.copy(
-                    fontSize = 30.sp,
+                    fontSize = 32.sp,
+                    lineHeight = 36.sp,
                     fontFamily = EUkraine,
                     fontWeight = FontWeight.Normal
                 ),
@@ -256,39 +470,36 @@ private fun SheetContent() {
                 painter = painterResource(DRes.drawable.ic_trident),
                 contentDescription = null,
                 tint = Ink,
-                modifier = Modifier.width(40.dp).height(48.dp)
+                modifier = Modifier.width(36.dp).height(42.dp)
             )
         }
         Spacer(Modifier.height(Space.l))
         TickerBar(
             text = TICKER,
-            textSize = 17.sp,
-            modifier = Modifier
-                .padding(horizontal = Space.xl)
-                .clip(RoundedCornerShape(Radius.s))
+            textSize = 13.sp
         )
-        Spacer(Modifier.height(Space.l))
+        Spacer(Modifier.height(28.dp))
 
-        Column(Modifier.padding(horizontal = Space.xl)) {
+        Column(Modifier.padding(horizontal = 26.dp)) {
             Column(
                 Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(Radius.card))
                     .background(Paper)
-                    .padding(Space.xl)
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 19.dp)
             ) {
                 Text(
                     displayName(Profile.FULL_NAME),
                     style = H1.copy(
-                        fontSize = 32.sp,
-                        lineHeight = 35.sp,
+                        fontSize = 21.sp,
+                        lineHeight = 24.sp,
                         fontFamily = EUkraine,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Normal
                     ),
                     color = Ink
                 )
                 Spacer(Modifier.height(Space.l))
-                Text("Знято з обліку", style = Caption.copy(fontSize = 18.sp), color = Ink)
+                Text("Знято з обліку", style = Caption.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal), color = Ink)
                 Spacer(Modifier.height(Space.l))
                 Row {
                     Image(
@@ -296,19 +507,19 @@ private fun SheetContent() {
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .width(162.dp)
-                            .height(210.dp)
+                            .width(142.dp)
+                            .height(178.dp)
                             .clip(RoundedCornerShape(12.dp))
                     )
                     Spacer(Modifier.width(Space.l))
                     Column(Modifier.weight(1f)) {
-                        Text("Дата народження:", style = Caption.copy(fontSize = 15.sp), color = InkMuted)
-                        Spacer(Modifier.height(Space.xxs))
-                        Text(Profile.BIRTH_DATE, style = Caption.copy(fontSize = 18.sp), color = Ink)
+                        Text("Дата народження:", style = Caption.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal), color = Ink, maxLines = 1, softWrap = false)
+                        Spacer(Modifier.height(6.dp))
+                        Text(Profile.BIRTH_DATE, style = Caption.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal), color = Ink)
                         Spacer(Modifier.height(Space.l))
-                        Text("РНОКПП:", style = Caption.copy(fontSize = 15.sp), color = InkMuted)
-                        Spacer(Modifier.height(Space.xxs))
-                        Text(Profile.TAX_ID, style = Caption.copy(fontSize = 18.sp), color = Ink)
+                        Text("РНОКПП:", style = Caption.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal), color = Ink)
+                        Spacer(Modifier.height(6.dp))
+                        Text(Profile.TAX_ID, style = Caption.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal), color = Ink)
                     }
                 }
             }
@@ -324,61 +535,61 @@ private fun SheetContent() {
 private fun FieldSections() {
     Column(Modifier.fillMaxWidth()) {
         CardBlock {
-            Text("Підстава зняття чи виключення:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text("Підстава зняття чи виключення:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(DISCHARGE_GROUND, style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(DISCHARGE_GROUND, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
         }
         CardBlock {
-            Text("Постанова ВЛК:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text("Постанова ВЛК:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(VLC_VERDICT, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
+            Text(VLC_VERDICT, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
             Divider()
-            Spacer(Modifier.height(Space.m))
+            Spacer(Modifier.height(14.dp))
             Row(Modifier.fillMaxWidth()) {
-                Text("Дата ВЛК:", style = Caption.copy(fontSize = 14.sp), color = Ink, modifier = Modifier.weight(1f))
-                Text(VLC_DATE, style = Caption.copy(fontSize = 14.sp), color = Ink)
+                Text("Дата ВЛК:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink, modifier = Modifier.weight(1f))
+                Text(VLC_DATE, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             }
         }
         CardBlock {
-            Text("ТЦК та СП:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text("ТЦК та СП:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(Profile.MILITARY_OFFICE, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
+            Text(Profile.MILITARY_OFFICE, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
             Divider()
-            Spacer(Modifier.height(Space.m))
+            Spacer(Modifier.height(14.dp))
             Row(Modifier.fillMaxWidth()) {
-                Text("Звання", style = Caption.copy(fontSize = 14.sp), color = Ink, modifier = Modifier.weight(1f))
-                Text(Profile.RANK, style = Caption.copy(fontSize = 14.sp), color = Ink)
+                Text("Звання", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink, modifier = Modifier.weight(1f))
+                Text(Profile.RANK, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             }
-            Spacer(Modifier.height(Space.m))
+            Spacer(Modifier.height(14.dp))
             Row(Modifier.fillMaxWidth()) {
-                Text("ВОС:", style = Caption.copy(fontSize = 14.sp), color = Ink, modifier = Modifier.weight(1f))
-                Text(Profile.VOS, style = Caption.copy(fontSize = 14.sp), color = Ink)
+                Text("ВОС:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink, modifier = Modifier.weight(1f))
+                Text(Profile.VOS, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             }
-            Spacer(Modifier.height(Space.m))
-            Text(POSITION, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
-            Text("Категорія обліку:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Spacer(Modifier.height(14.dp))
+            Text(POSITION, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
+            Text("Категорія обліку:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(Profile.CATEGORY, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
-            Text("Номер в реєстрі Оберіг:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(Profile.CATEGORY, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
+            Text("Номер в реєстрі Оберіг:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(REGISTRY, style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(REGISTRY, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
         }
         CardBlock {
-            Text("Телефон:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text("Телефон:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(Profile.PHONE, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
-            Text("Email:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(Profile.PHONE, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
+            Text("Email:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(Profile.EMAIL, style = Caption.copy(fontSize = 14.sp), color = Ink)
-            Spacer(Modifier.height(Space.m))
-            Text("Адреса проживання:", style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(Profile.EMAIL, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
+            Spacer(Modifier.height(14.dp))
+            Text("Адреса проживання:", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             Spacer(Modifier.height(Space.xs))
-            Text(Profile.ADDRESS, style = Caption.copy(fontSize = 14.sp), color = Ink)
+            Text(Profile.ADDRESS, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
         }
         CardBlock {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -398,17 +609,17 @@ private fun FieldSections() {
                     )
                 }
                 Spacer(Modifier.width(Space.s))
-                Text("Дані уточнено вчасно", style = Caption.copy(fontSize = 14.sp), color = Ink)
+                Text("Дані уточнено вчасно", style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             }
             Spacer(Modifier.height(Space.l))
             Row(Modifier.fillMaxWidth()) {
                 Text(
                     "Дата останнього уточнення даних:",
-                    style = Caption.copy(fontSize = 14.sp),
+                    style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal),
                     color = Ink,
                     modifier = Modifier.weight(1f)
                 )
-                Text(LAST_UPDATE, style = Caption.copy(fontSize = 14.sp), color = Ink)
+                Text(LAST_UPDATE, style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Normal), color = Ink)
             }
         }
     }
@@ -419,10 +630,10 @@ private fun CardBlock(content: @Composable () -> Unit) {
     Column(
         Modifier
             .fillMaxWidth()
-            .padding(bottom = Space.s)
+            .padding(bottom = 19.dp)
             .clip(RoundedCornerShape(Radius.card))
             .background(Paper)
-            .padding(Space.xl)
+            .padding(15.dp)
     ) {
         content()
     }

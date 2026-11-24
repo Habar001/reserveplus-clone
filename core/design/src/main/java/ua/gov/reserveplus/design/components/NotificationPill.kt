@@ -26,18 +26,18 @@ import ua.gov.reserveplus.design.Radius
 fun NotificationPill(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
-            .height(60.dp)
+            .height(24.dp)
             .background(Paper, RoundedCornerShape(Radius.pill))
-            .padding(horizontal = 28.dp),
+            .padding(horizontal = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text("Сповіщення", style = Caption.copy(fontSize = 18.sp), color = Ink)
+        Text("Сповіщення", style = Caption.copy(fontSize = 13.sp), color = Ink)
         Spacer(Modifier.width(10.dp))
         Icon(
             painter = painterResource(R.drawable.ic_notifications),
             contentDescription = null,
             tint = Ink,
-            modifier = Modifier.size(26.dp)
+            modifier = Modifier.size(18.dp)
         )
     }
 }

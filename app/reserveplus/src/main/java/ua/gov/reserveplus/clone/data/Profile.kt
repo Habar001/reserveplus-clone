@@ -15,4 +15,5 @@ object Profile {
     const val PHONE = "+380 44 000 00 00"
     const val EMAIL = "example@ukr.net"
     const val QR_PAYLOAD = "reserveplus-clone-0001"
+    const val QR_VALID_UNTIL = "22 червень 2027"
 }

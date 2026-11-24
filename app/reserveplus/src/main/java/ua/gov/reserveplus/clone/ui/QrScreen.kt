@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -24,6 +25,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -71,20 +73,28 @@ fun QrScreen(onBack: () -> Unit) {
                 color = Ink,
                 textAlign = TextAlign.Center
             )
-            Spacer(Modifier.height(Space.xxl))
-            QrCode(content = Profile.QR_PAYLOAD, size = 240.dp)
-            Spacer(Modifier.height(Space.xxl))
+            Spacer(Modifier.height(Space.l))
+            QrCode(content = Profile.QR_PAYLOAD, size = 256.dp)
+            Spacer(Modifier.height(Space.l))
             Column(
                 Modifier
                     .fillMaxWidth()
                     .background(SandSunken, RoundedCornerShape(Radius.m))
                     .padding(Space.xl)
             ) {
-                Text(
-                    "Використовуйте QR-код лише за потреби та відповідально ставтеся до його поширення.",
-                    style = Caption,
-                    color = InkMuted
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        "i",
+                        style = Caption.copy(fontSize = 16.sp, fontWeight = FontWeight.Bold),
+                        color = Ink
+                    )
+                    Spacer(Modifier.width(Space.xs))
+                    Text(
+                        "Використовуйте QR-код лише за потреби та відповідально ставтеся до його поширення.",
+                        style = Caption,
+                        color = InkMuted
+                    )
+                }
             }
             Spacer(Modifier.height(Space.xxl))
         }

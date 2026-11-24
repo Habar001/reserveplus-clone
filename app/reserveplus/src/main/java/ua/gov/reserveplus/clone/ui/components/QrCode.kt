@@ -14,8 +14,8 @@ import com.google.zxing.qrcode.QRCodeWriter
 
 @Composable
 fun QrCode(content: String, size: Dp, modifier: Modifier = Modifier) {
-    val bitmap = remember(content, size) {
-        val px = size.value.toInt().coerceAtLeast(256)
+    val bitmap = remember(content) {
+        val px = 1024
         val matrix = QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, px, px)
         Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888).apply {
             for (x in 0 until px) {

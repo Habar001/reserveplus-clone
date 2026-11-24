@@ -30,6 +30,9 @@ import ua.gov.reserveplus.design.InkMuted
 import ua.gov.reserveplus.design.Label
 import ua.gov.reserveplus.design.Paper
 import ua.gov.reserveplus.design.Space
+import androidx.compose.material3.Icon
+import androidx.compose.ui.res.painterResource
+import ua.gov.reserveplus.design.R as DRes
 
 private data class NavTab(val id: String, val label: String)
 
@@ -47,7 +50,7 @@ fun BottomNav(selected: String, onSelect: (String) -> Unit) {
             .fillMaxWidth()
             .background(Paper)
             .navigationBarsPadding()
-            .padding(top = Space.l, bottom = Space.m),
+            .padding(top = 10.dp, bottom = 6.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         TABS.forEach { tab ->
@@ -58,16 +61,12 @@ fun BottomNav(selected: String, onSelect: (String) -> Unit) {
                     .padding(horizontal = Space.m),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                NavIcon(tab.id, if (active) Ink else InkMuted)
+                NavIcon(tab.id, active)
                 Spacer(Modifier.height(Space.xs))
                 Text(
                     tab.label,
-                    style = Label.copy(
-                        fontSize = 18.sp,
-                        fontWeight = if (active) FontWeight.Bold else FontWeight.Normal
-                    ),
-                    color = if (active) Ink else InkMuted,
-                    maxLines = 1
+                    style = Label.copy(fontSize = 10.sp),
+                    color = Ink
                 )
             }
         }
@@ -75,55 +74,17 @@ fun BottomNav(selected: String, onSelect: (String) -> Unit) {
 }
 
 @Composable
-private fun NavIcon(id: String, color: Color) {
-    Canvas(Modifier.size(30.dp)) {
-        val w = size.width
-        val h = size.height
-        when (id) {
-            "id" -> {
-                drawRoundRect(
-                    color,
-                    topLeft = Offset(w * 0.2f, h * 0.08f),
-                    size = Size(w * 0.6f, h * 0.84f),
-                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(w * 0.12f)
-                )
-                drawLine(Color.White, Offset(w * 0.33f, h * 0.36f), Offset(w * 0.67f, h * 0.36f), w * 0.08f, StrokeCap.Round)
-                drawLine(Color.White, Offset(w * 0.33f, h * 0.56f), Offset(w * 0.58f, h * 0.56f), w * 0.08f, StrokeCap.Round)
-            }
-            "services" -> {
-                val s = w * 0.32f
-                listOf(0.12f to 0.12f, 0.56f to 0.12f, 0.12f to 0.56f, 0.56f to 0.56f).forEach { (x, y) ->
-                    drawRoundRect(
-                        color,
-                        topLeft = Offset(w * x, h * y),
-                        size = Size(s, s),
-                        cornerRadius = androidx.compose.ui.geometry.CornerRadius(w * 0.07f),
-                        style = Stroke(width = w * 0.09f)
-                    )
-                }
-            }
-            "vacancies" -> {
-                drawRoundRect(
-                    color,
-                    topLeft = Offset(w * 0.14f, h * 0.14f),
-                    size = Size(w * 0.72f, h * 0.72f),
-                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(w * 0.1f),
-                    style = Stroke(width = w * 0.09f)
-                )
-                val p = Path().apply {
-                    moveTo(w * 0.5f, h * 0.32f)
-                    lineTo(w * 0.68f, h * 0.5f)
-                    lineTo(w * 0.5f, h * 0.68f)
-                    lineTo(w * 0.32f, h * 0.5f)
-                    close()
-                }
-                drawPath(p, color)
-            }
-            else -> {
-                drawLine(color, Offset(w * 0.14f, h * 0.3f), Offset(w * 0.86f, h * 0.3f), w * 0.11f, StrokeCap.Round)
-                drawLine(color, Offset(w * 0.14f, h * 0.5f), Offset(w * 0.86f, h * 0.5f), w * 0.11f, StrokeCap.Round)
-                drawLine(color, Offset(w * 0.14f, h * 0.7f), Offset(w * 0.86f, h * 0.7f), w * 0.11f, StrokeCap.Round)
-            }
-        }
+private fun NavIcon(id: String, active: Boolean) {
+    val res = when (id) {
+        "id" -> if (active) DRes.drawable.ic_nav_document_sel else DRes.drawable.ic_nav_document
+        "services" -> if (active) DRes.drawable.ic_nav_services_sel else DRes.drawable.ic_nav_services
+        "vacancies" -> if (active) DRes.drawable.ic_nav_vacancies_sel else DRes.drawable.ic_nav_vacancies
+        else -> if (active) DRes.drawable.ic_nav_menu_sel else DRes.drawable.ic_nav_menu
     }
+    Icon(
+        painter = painterResource(res),
+        contentDescription = null,
+        tint = if (active) Color.Unspecified else Ink,
+        modifier = Modifier.size(24.dp)
+    )
 }
